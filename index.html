@@ -45,4 +45,77 @@ body{
 }
 
 /* posiciones iniciales */
-.n
+.nota1{top:20px; left:50%; transform:translateX(-50%);}
+.nota2{top:200px; left:20px;}
+.nota3{top:200px; right:20px;}
+.nota4{bottom:20px; left:50%; transform:translateX(-50%);}
+
+.foto{
+  width:120px;
+  margin-top:10px;
+  border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="Love_You nota1 draggable">
+    ✨ Arrastrá los papeles con el dedo ✨
+  </div>
+
+  <div class="Love_You nota2 draggable">
+    💕 Mi persona favorita 😍
+    <br>
+    <img class="foto" src="https://i.imgur.com/QCNbOAo.jpg">
+  </div>
+
+  <div class="Love_You nota3 draggable">
+    💖 Sos increíble y especial ❤️  
+    <br>Te amo mucho 💘
+    <br>
+    <img class="foto" src="https://i.imgur.com/8RKXAIV.jpg">
+  </div>
+
+  <div class="Love_You nota4 draggable">
+    🌹 Te amo hoy, mañana y siempre 🌹
+  </div>
+
+</div>
+
+<script>
+document.querySelectorAll('.draggable').forEach(el => {
+  let offsetX = 0, offsetY = 0, dragging = false;
+
+  const start = (e) => {
+    dragging = true;
+    const touch = e.touches ? e.touches[0] : e;
+    offsetX = touch.clientX - el.offsetLeft;
+    offsetY = touch.clientY - el.offsetTop;
+    el.style.zIndex = 1000;
+  };
+
+  const move = (e) => {
+    if(!dragging) return;
+    const touch = e.touches ? e.touches[0] : e;
+    el.style.left = (touch.clientX - offsetX) + 'px';
+    el.style.top = (touch.clientY - offsetY) + 'px';
+  };
+
+  const end = () => dragging = false;
+
+  el.addEventListener('mousedown', start);
+  el.addEventListener('touchstart', start);
+
+  document.addEventListener('mousemove', move);
+  document.addEventListener('touchmove', move);
+
+  document.addEventListener('mouseup', end);
+  document.addEventListener('touchend', end);
+});
+</script>
+
+</body>
+</html>
