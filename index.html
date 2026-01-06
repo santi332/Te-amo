@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para Vos ❤️</title>
+
+<style>
+:root{
+  --letter-love: 160px;
+  --letter: #fffafc;
+}
+
+/* Fondo */
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: linear-gradient(135deg,#ff4f8b,#b721ff);
+  font-family: 'Comic Sans MS', cursive;
+  overflow:hidden;
+}
+
+/* Contenedor */
+.container{
+  position:relative;
+  width:90%;
+  height:80%;
+  background:white;
+  border-radius:20px;
+  box-shadow:0 20px 40px rgba(0,0,0,.3);
+}
+
+/* Notas */
+.Love_You{
+  position:absolute;
+  width:90%;
+  font-size:2rem;
+  font-family:"Comic Sans MS";
+  height:var(--letter-love);
+  transform:translateX(-50%);
+  background:var(--letter);
+  padding:15px;
+  border-radius:10px;
+  box-shadow:0 10px 20px rgba(0,0,0,.2);
+}
+
+/* Posiciones */
+.nota1{top:30px; left:50%;}
+.nota2{top:220px; left:20%; width:250px;}
+.nota3{top:220px; right:20%; width:250px;}
+.nota4{bottom:30px; left:50%;}
+
+/* Fotos */
+.foto{
+  width:120px;
+  margin-top:10px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,.3);
+}
+
+/* Corazones */
+.heart{
+  position:absolute;
+  color:white;
+  font-size:20px;
+  animation: flotar 6s infinite;
+}
+
+@keyframes flotar{
+  0%{transform:translateY(0); opacity:1;}
+  100%{transform:translateY(-100vh); opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="Love_You nota1">
+    ✨ Arrastra los papeles para moverlos ✨
+  </div>
+
+  <div class="Love_You nota2">
+    💕 Y mi persona favorita 😍
+    <br>
+    <img class="foto" src="https://i.imgur.com/QCNbOAo.jpg">
+  </div>
+
+  <div class="Love_You nota3">
+    💖 Eres increíble y especial ❤️  
+    <br>
+    ¿Cómo no puede ser así? 💘
+    <br>
+    <img class="foto" src="https://i.imgur.com/8RKXAIV.jpg">
+  </div>
+
+  <div class="Love_You nota4">
+    🌹 Te amo hoy, mañana y siempre 🌹
+  </div>
+
+</div>
+
+<!-- Corazones flotando -->
+<script>
+for(let i=0;i<25;i++){
+  let heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="❤️";
+  heart.style.left=Math.random()*100+"%";
+  heart.style.animationDuration=(Math.random()*3+4)+"s";
+  document.body.appendChild(heart);
+}
+</script>
+
+</body>
+  </html>
